@@ -1,8 +1,8 @@
 package co.hmtt.binschedule.utils
 
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import org.openqa.selenium.remote.DesiredCapabilities
-import org.openqa.selenium.remote.RemoteWebDriver
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
@@ -15,13 +15,11 @@ class Browser {
     private String hubUrl
 
     def getBrowser() {
-        final DesiredCapabilities capabilities = DesiredCapabilities.chrome()
-        def options = new ChromeOptions()
-        options.addArguments("disable-infobars")
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options)
-        final RemoteWebDriver driver = new RemoteWebDriver(new URL("http://${hubUrl}:4444/wd/hub"), capabilities)
+        System.setProperty('webdriver.chrome.driver', '/usr/bin/chromedriver')
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
-        driver
     }
 
 }
