@@ -1,8 +1,6 @@
 plugins {
     id 'org.springframework.boot' version '2.2.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'com.bmuschko.docker-remote-api' version '6.1.2'
-    id 'com.bmuschko.docker-spring-boot-application' version '6.1.2'
     id 'application'
     id 'groovy'
 }
@@ -30,16 +28,6 @@ dependencies {
 }
 
 apply plugin: 'application'
-apply plugin: 'com.bmuschko.docker-spring-boot-application'
-
-docker {
-    springBootApplication {
-        baseImage = 'openjdk:8-alpine'
-        ports = [9090, 8080]
-        images = ["${rootProject.name}:${version}", "${rootProject.name}:latest"]
-        jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
-    }
-}
 
 test {
     useJUnitPlatform()
