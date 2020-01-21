@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'com.bmuschko.docker-remote-api' version '6.1.2'
+    id 'com.bmuschko.docker-spring-boot-application' version '6.1.2'
+    id 'application'
+    id 'groovy'
+}
+
+group = 'co.hmtt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+mainClassName = 'co.hmtt.binschedule.BinScheduleApplication'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.codehaus.groovy:groovy'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'org.codehaus.groovy:groovy-json:2.5.9'
+    implementation 'org.projectlombok:lombok:1.18.10'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+apply plugin: 'application'
+apply plugin: 'com.bmuschko.docker-spring-boot-application'
+
+docker {
+    springBootApplication {
+        baseImage = 'openjdk:8-alpine'
+        ports = [9090, 8080]
+        images = ["${rootProject.name}:${version}", "${rootProject.name}:latest"]
+        jvmArgs = ['-Dspring.profiles.active=production', '-Xmx2048m']
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+

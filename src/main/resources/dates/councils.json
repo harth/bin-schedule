@@ -1,0 +1,21 @@
+{
+  "councils": [
+    {
+      "name": "Stirlingshire",
+      "site" : "https://www.stirling.gov.uk/bins-waste-recycling/bin-collection-dates/?clear=true",
+      "postcodes": [
+        "FK7",
+        "FK8",
+        "FK9"
+      ]
+    },
+    {
+      "name": "Falkirk",
+      "site" : "https://www.stirling.gov.uk/bins-waste-recycling/bin-collection-dates/?clear=true",
+      "postcodes": [
+        "FK1",
+        "FK2"
+      ]
+    }
+  ]
+}

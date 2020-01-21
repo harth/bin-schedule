@@ -1,0 +1,27 @@
+[
+    {
+        "colour": "Brown",
+        "toBeCollected": true,
+        "collectionDate": "2020-01-27T00:00:00+0000"
+    },
+    {
+        "colour": "Glass",
+        "toBeCollected": true,
+        "collectionDate": "2020-01-27T00:00:00+0000"
+    },
+    {
+        "colour": "Grey",
+        "toBeCollected": false,
+        "collectionDate": "2020-02-03T00:00:00+0000"
+    },
+    {
+        "colour": "Blue",
+        "toBeCollected": false,
+        "collectionDate": "2020-02-03T00:00:00+0000"
+    },
+    {
+        "colour": "Green",
+        "toBeCollected": false,
+        "collectionDate": "2020-02-10T00:00:00+0000"
+    }
+]

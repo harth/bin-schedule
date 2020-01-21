@@ -1,0 +1,21 @@
+spring:
+  profiles: default
+name: default-YAML
+environment: test
+wheelie:
+  persist:
+    dir: /Users/swi18/.wheelie
+  selenium:
+    hub: localhost
+
+---
+
+spring:
+  profiles: production
+name: production-YAML
+environment: production
+wheelie:
+  persist:
+    dir: /home
+  selenium:
+    hub: hub
